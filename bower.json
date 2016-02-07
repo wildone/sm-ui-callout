@@ -1,0 +1,35 @@
+{
+  "name": "sm-ui-callout",
+  "description": "callout box",
+  "version": "0.0.0",
+  "authors": [
+    "Simpla <admin@simpla.io>"
+  ],
+  "license": "MIT",
+  "main": "sm-ui-callout.html",
+  "keywords": [
+    "simpla",
+    "web component",
+    "polymer",
+    "callout"
+  ],
+  "ignore": [
+    "*",
+    "!src/**/*",
+    "!sm-ui-callout.html",
+    "!LICENSE"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^0.7.0",
+    "polymer": "^1.2.0",
+    "simpla-core": "https://github.com/simplaio/simpla-core.git"
+  },
+  "devDependencies": {
+    "web-component-tester": "^3.3.0",
+    "test-fixture": "PolymerElements/test-fixture"
+  },
+  "componentImports": [
+    "polymer/polymer.html",
+    "simpla-core/simpla-core.html"
+  ]
+}

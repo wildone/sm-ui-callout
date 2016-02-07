@@ -1,0 +1,73 @@
+<dom-module id="sm-ui-callout">
+  <template>
+    <style include="sm-css">
+
+      /* Defaults */
+      :root {
+        --callout-arrow-size: 0.75rem;
+      }
+
+      /**
+       * Core
+       */
+      :host {
+        position: relative;
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 0 2px var(--light-black);
+      }
+
+      :host::before {
+        content: '';
+        position: absolute;
+        height: var(--callout-arrow-size);
+        width: var(--callout-arrow-size);
+        transform: rotate(45deg);
+        background: inherit;
+      }
+
+      /**
+       * Y arrow positioning
+       */
+      :host([arrow~="top"]) {
+        transform: translateY(calc(var(--callout-arrow-size) / 2));
+      }
+
+      :host([arrow~="top"])::before {
+        top: calc(0px - var(--callout-arrow-size) / 2);
+        border-top-left-radius: var(--border-radius);
+        box-shadow: -0.5px -0.5px 0.5px var(--light-black);
+      }
+
+      :host([arrow~="bottom"])::before {
+        bottom: calc(0px - var(--callout-arrow-size) / 2);
+        border-bottom-left-radius: var(--border-radius);
+        box-shadow: 0.5px 0.5px 0.5px var(--light-black);
+      }
+
+      :host([arrow~="bottom"]) {
+        transform: translateY(calc(0 - var(--callout-arrow-size) / 2));
+      }
+
+      /**
+       * X arrow positioning
+       */
+      :host([arrow~="left"])::before {
+        left: var(--callout-arrow-size);
+      }
+
+      :host([arrow~="middle"])::before {
+        left: calc(50% - var(--callout-arrow-size) / 2);
+      }
+
+      :host([arrow~="right"])::before {
+        right: var(--callout-arrow-size);
+      }
+
+    </style>
+
+    <content></content>
+
+  </template>
+  <script src="./sm-ui-callout.js"></script>
+</dom-module>
