@@ -30,7 +30,13 @@ class SmUiCallout {
    * @return {undefined}
    */
   _setTransformOrigin() {
-    this.style['transform-origin'] = this.arrow;
+    let transformOrigins = [
+      'transform-origin',
+      'webkit-transform-origin'
+    ];
+
+    transformOrigins.forEach((transform) => this.style[transform] = this.arrow);
+
   }
 
   /**
