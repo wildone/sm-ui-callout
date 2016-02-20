@@ -43,7 +43,7 @@
       :host([arrow*="top"])::before {
         top: calc(0px - var(--callout-arrow-size) / 2);
         border-top-left-radius: var(--border-radius);
-        box-shadow: -0.5px -0.5px 0.5px var(--light-black);
+        box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
       }
 
       :host([arrow*="bottom"]) {
@@ -53,7 +53,7 @@
       :host([arrow*="bottom"])::before {
         bottom: calc(0px - var(--callout-arrow-size) / 2);
         border-bottom-left-radius: var(--border-radius);
-        box-shadow: 0.5px 0.5px 0.5px var(--light-black);
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
       }
 
       /**
