@@ -64,6 +64,26 @@ export default {
     animation.onfinish = () => {
       this.toggleAttribute('visible', false, this);
     }
+  },
+
+  /**
+   * Close the callout on escape key
+   * @return {undefined}
+   */
+  _closeOnEsc() {
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode === 27) {
+        this.active = false;
+      }
+    });
+  },
+
+  /**
+   * Setup listener functions on attach
+   * @return {undefined}
+   */
+  attached() {
+    this._closeOnEsc();
   }
 
 }
