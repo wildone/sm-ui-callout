@@ -27,9 +27,5 @@
   "devDependencies": {
     "web-component-tester": "^3.3.0",
     "test-fixture": "PolymerElements/test-fixture"
-  },
-  "componentImports": [
-    "polymer/polymer.html",
-    "simpla-core/simpla-core.html"
-  ]
+  }
 }
