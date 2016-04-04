@@ -37,6 +37,12 @@
         background: inherit;
       }
 
+      /* Make sure content above arrow */
+      :host ::content * {
+        position: relative;
+        z-index: 1;
+      }
+
       /**
        * Y arrow positioning
        */
