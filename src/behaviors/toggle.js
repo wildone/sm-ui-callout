@@ -1,4 +1,4 @@
-const easings = simpla.constants.easings,
+const easings = simpla._constants.easings,
       ANIMATION = {
         frames: [
           { transform: 'scale(0.9, 0.8)', opacity: 0 },
