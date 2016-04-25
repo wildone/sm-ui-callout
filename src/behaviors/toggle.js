@@ -1,13 +1,20 @@
 const easings = simpla._constants.easings,
       ANIMATION = {
         frames: [
-          { transform: 'scale(0.9, 0.8)', opacity: 0 },
+          { transform: 'scale(0.95, 0.8)', opacity: 0 },
           { transform: 'scale(1, 1)', opacity: 1 }
         ],
         opts: {
-          easing: easings.easeOutCubic,
-          fill: 'both',
-          duration: 120
+          in: {
+            easing: easings.easeOutCubic,
+            fill: 'both',
+            duration: 60
+          },
+          out: {
+            easing: easings.easeOutCubic,
+            fill: 'both',
+            duration: 90
+          }
         }
       };
 
@@ -23,7 +30,13 @@ export default {
     active: {
       type: Boolean,
       observer: '_activeChanged'
-    }
+    },
+
+    _opened: Boolean,
+
+    noCloseOnClick: Boolean,
+
+    noCloseOnEscape: Boolean
 
   },
 
@@ -49,8 +62,11 @@ export default {
    * @return {undefined}
    */
   _showCallout() {
+    let animation;
+
     this.toggleAttribute('visible', true, this);
-    this.animate(ANIMATION.frames, ANIMATION.opts);
+    animation = this.animate(ANIMATION.frames, ANIMATION.opts.in);
+    animation.onfinish = () => this._opened = true;
   },
 
   /**
@@ -60,9 +76,10 @@ export default {
   _hideCallout() {
     let animation;
 
-    animation = this.animate(ANIMATION.frames.slice().reverse(), ANIMATION.opts);
+    animation = this.animate(ANIMATION.frames.slice().reverse(), ANIMATION.opts.out);
     animation.onfinish = () => {
       this.toggleAttribute('visible', false, this);
+      this._opened = false;
     }
   },
 
@@ -72,7 +89,19 @@ export default {
    */
   _closeOnEsc() {
     document.addEventListener('keyup', (e) => {
-      if (e.keyCode === 27) {
+      if (!this.noCloseOnEscape && e.keyCode === 27) {
+        this.active = false;
+      }
+    });
+  },
+
+  /**
+   * Close on outside (and children) click
+   * @return {undefined}
+   */
+  _closeOnClick() {
+    document.addEventListener('click', (e) => {
+      if (!this.noCloseOnClick && this._opened && e.target !== this) {
         this.active = false;
       }
     });
@@ -84,6 +113,7 @@ export default {
    */
   attached() {
     this._closeOnEsc();
+    this._closeOnClick();
   }
 
 }
