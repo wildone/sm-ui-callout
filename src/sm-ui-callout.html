@@ -8,9 +8,7 @@
 
       /* Defaults */
       :root {
-
         --callout-arrow-size: 0.75rem;
-
       }
 
       /**
@@ -20,7 +18,7 @@
         position: relative;
         background: white;
         border-radius: var(--border-radius);
-        box-shadow: 0 0 2px var(--light-black);
+        box-shadow: var(--shadow);
         display: none;
       }
 
@@ -52,8 +50,7 @@
 
       :host([arrow*="top"])::before {
         top: calc(0px - var(--callout-arrow-size) / 2);
-        border-top-left-radius: var(--border-radius);
-        box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+        box-shadow: -1px -1px rgba(0,0,0, 0.075);
       }
 
       :host([arrow*="bottom"]) {
@@ -62,8 +59,7 @@
 
       :host([arrow*="bottom"])::before {
         bottom: calc(0px - var(--callout-arrow-size) / 2);
-        border-bottom-left-radius: var(--border-radius);
-        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        box-shadow: 1px 1px 1px rgba(0,0,0, 0.2);
       }
 
       /**
