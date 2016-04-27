@@ -29,7 +29,8 @@ export default {
      */
     active: {
       type: Boolean,
-      observer: '_activeChanged'
+      observer: '_activeChanged',
+      notify: true
     },
 
     _opened: Boolean,
