@@ -1,6 +1,6 @@
 {
   "name": "sm-ui-callout",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "callout box",
   "main": "sm-ui-callout.html",
   "scripts": {
