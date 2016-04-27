@@ -5,16 +5,9 @@ const easings = simpla._constants.easings,
           { transform: 'scale(1, 1)', opacity: 1 }
         ],
         opts: {
-          in: {
-            easing: easings.easeOutCubic,
-            fill: 'both',
-            duration: 60
-          },
-          out: {
-            easing: easings.easeOutCubic,
-            fill: 'both',
-            duration: 90
-          }
+          easing: easings.easeOutCubic,
+          fill: 'both',
+          duration: 75
         }
       };
 
@@ -66,7 +59,7 @@ export default {
     let animation;
 
     this.toggleAttribute('visible', true, this);
-    animation = this.animate(ANIMATION.frames, ANIMATION.opts.in);
+    animation = this.animate(ANIMATION.frames, ANIMATION.opts);
     animation.onfinish = () => this._opened = true;
   },
 
@@ -77,7 +70,7 @@ export default {
   _hideCallout() {
     let animation;
 
-    animation = this.animate(ANIMATION.frames.slice().reverse(), ANIMATION.opts.out);
+    animation = this.animate(ANIMATION.frames.slice().reverse(), ANIMATION.opts);
     animation.onfinish = () => {
       this.toggleAttribute('visible', false, this);
       this._opened = false;

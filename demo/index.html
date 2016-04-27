@@ -13,10 +13,18 @@
       sm-ui-callout {
         width: 200px;
         height: 100px;
+        margin-top: 20px;
       }
     </style>
   </head>
   <body>
-    <sm-ui-callout arrow="top left" active></sm-ui-callout>
+    <button id="trigger">toggle callout</button>
+    <sm-ui-callout id="callout" arrow="top left"></sm-ui-callout>
+
+    <script>
+      document.querySelector('#trigger').addEventListener('click', function() {
+        document.querySelector('#callout').toggle();
+      })
+    </script>
   </body>
 </html>
